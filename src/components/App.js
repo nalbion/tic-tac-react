@@ -1,14 +1,34 @@
 import React from 'react';
-import Board from './Board';
-import Result from './Result';
 import styled from 'styled-components';
+import {Game} from '../routes/Game';
+import {Privacy} from '../routes/Privacy';
+import {TermsOfService} from '../routes/TermsOfService';
+import {GooglePermissions} from '../routes/GooglePermissions';
 import './App.css';
+import {Link, Route} from "react-router-dom";
 
 const App = ({className}) => {
   return (
-    <div className={className}>
-      <Result />
-      <Board />
+    <div>
+        <nav>
+            <Link to="/">Play</Link>
+        </nav>
+        <nav>
+            <Link to="/info/privacy">Privacy</Link>
+        </nav>
+        <nav>
+            <Link to="/info/terms-of-service">Terms of Service</Link>
+        </nav>
+        <nav>
+            <Link to="/info/google-permissions">Google Permissions</Link>
+        </nav>
+
+        <div>
+            <Route exact path="/" component={Game}/>
+            <Route path="/info/privacy" component={Privacy}/>
+            <Route path="/info/terms-of-service" component={TermsOfService}/>
+            <Route path="/info/google-permissions" component={GooglePermissions}/>
+        </div>
     </div>
   );
 }

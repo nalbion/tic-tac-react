@@ -5,6 +5,7 @@ import {createStore} from 'redux';
 import { initialState, gameReducer } from './reducers/gameReducer';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 
 const store = createStore(gameReducer, initialState,
@@ -12,7 +13,9 @@ const store = createStore(gameReducer, initialState,
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App/>
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );
